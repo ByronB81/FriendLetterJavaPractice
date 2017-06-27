@@ -1,29 +1,17 @@
+import java.util.HashMap;
+
+import spark.ModelAndView;
+import spark.template.velocity.VelocityTemplateEngine;
+
 import static spark.Spark.*;
 
 public class App {
   public static void main(String[] args) {
     staticFileLocation("/public");
 
-    get("/", (request,response) ->
-    "<!DOCTYPE html>" +
-    "<html>" +
-      "<head>" +
-        "<title>Hello Friend!</title>" +
-        "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' >" +
-      "</head>" +
-      "<body>" +
-          "<h1>Hello from afar</h1>" +
-          "<p>Dear Friend,</p>" +
-          "<p>How are you? I hope that you are having a nice weekend. I'm vacationing in Iceland while I learn programming!</p>" +
-          "<p>You would not believe how cold it is here. I should have gone to Hawaii instead.</p>" +
-          "<p>I do like programming a lot... so I got that going for me.</p>" +
-          "<p>Looking forward to seeing you soon. I will bring you back a souvenir.</p>" +
-          "<p>Cheers!</p>" +
-          "<p>-Travel Master Blocker</p>" +
-          "<p>P.S. check out my photos <a href='/favorite_photos'>here!</a></p>" +
-        "</body>" +
-      "/html>"
-    );
+    get("/", (request,response) -> {
+      return new ModelAndView(new HashMap(), "templates/hello.vtl");
+    }, new VelocityTemplateEngine());
 
     get("/favorite_photos", (request,response) ->
     "<DOCTYPE html>" +

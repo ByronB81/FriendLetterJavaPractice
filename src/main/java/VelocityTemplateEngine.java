@@ -89,3 +89,4 @@ public class VelocityTemplateEngine extends TemplateEngine {
             throw new IllegalArgumentException("modelAndView must be of type java.util.Map");
         }
     }
+  }
