@@ -4,12 +4,12 @@ public class App {
   public static void main(String[] args) {
     staticFileLocation("/public");
 
-    get("/hello", (request,response) ->
+    get("/", (request,response) ->
     "<!DOCTYPE html>" +
     "<html>" +
       "<head>" +
         "<title>Hello Friend!</title>" +
-        "<link rel='stylesheet' + href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>" +
+        "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' >" +
       "</head>" +
       "<body>" +
           "<h1>Hello from afar</h1>" +
@@ -20,6 +20,7 @@ public class App {
           "<p>Looking forward to seeing you soon. I will bring you back a souvenir.</p>" +
           "<p>Cheers!</p>" +
           "<p>-Travel Master Blocker</p>" +
+          "<p>P.S. check out my photos <a href='/favorite_photos'>here!</a></p>" +
         "</body>" +
       "/html>"
     );
